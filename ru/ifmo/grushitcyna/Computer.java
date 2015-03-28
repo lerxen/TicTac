@@ -1,5 +1,7 @@
 package ru.ifmo.grushitcyna;
 
+import ru.ifmo.grushitcyna.Board;
+
 import java.util.Random;
 
 public class Computer extends Gamer {
