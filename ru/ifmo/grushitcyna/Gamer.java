@@ -1,7 +1,5 @@
 package ru.ifmo.grushitcyna;
 
-import ru.ifmo.grushitcyna.Board;
-
 public abstract class Gamer {
 
     String name;
