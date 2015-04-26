@@ -38,7 +38,7 @@ public class Controller {
         int reply = JOptionPane.showConfirmDialog(null, "Хотите сыграть еще?", "ВЫ ВЫИГРАЛИ!!!", JOptionPane.YES_NO_OPTION);
         if (reply == JOptionPane.YES_OPTION) {
 
-            cleanBoard(board);
+            board.nullBoard();
 
         }
         if (reply == JOptionPane.NO_OPTION) {
@@ -47,19 +47,5 @@ public class Controller {
         }
 
     }
-
-    public void cleanBoard(Board board) {
-
-        for (int i = 0; i < board.size(); i++) {
-
-            for (int j = 0; j < board.size(); j++) {
-
-                board.nullBoard();
-            }
-        }
-
-
-    }
-
-
+    
 }
