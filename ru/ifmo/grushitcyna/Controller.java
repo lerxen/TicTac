@@ -8,6 +8,7 @@ public class Controller {
 
     private final Board board;
 
+
     public Controller(Board board) {
         this.board = board;
     }
@@ -17,41 +18,48 @@ public class Controller {
             board.setSymbol(NoughtsCrosses.X, x, y);
         } else {
             JOptionPane.showMessageDialog(null, "Эта ячейка занята!");
+            return;
         }
 
 
         if (board.winner()) {
-            int reply = JOptionPane.showConfirmDialog(null, "Хотите сыграть еще?", "ВЫ ВЫИГРАЛИ!!!", JOptionPane.YES_NO_OPTION);
-            if (reply == JOptionPane.YES_OPTION) {
-                {
-                    Board board1 = new Board(19);
-
-                    GameInterface app = new GameInterface(board1);
-                    app.setVisible(true);
-
-
-                }
-
-
-            }
+            newGame();
             return;
         }
 
         comp.move(board);
 
         if (board.winner()) {
-            int reply = JOptionPane.showConfirmDialog(null, "Хотите сыграть еще?", "Победил: " + comp.getName(), JOptionPane.YES_NO_OPTION);
-            if (reply == JOptionPane.YES_OPTION){
-                {
-                    Board board1 = new Board(19);
-
-                    GameInterface app = new GameInterface(board1);
-                    app.setVisible(true);
-
-
-                }
-            }
+            newGame();
         }
     }
+
+    public void newGame() {
+        int reply = JOptionPane.showConfirmDialog(null, "Хотите сыграть еще?", "ВЫ ВЫИГРАЛИ!!!", JOptionPane.YES_NO_OPTION);
+        if (reply == JOptionPane.YES_OPTION) {
+
+            cleanBoard(board);
+
+        }
+        if (reply == JOptionPane.NO_OPTION) {
+
+            System.exit(0);
+        }
+
+    }
+
+    public void cleanBoard(Board board) {
+
+        for (int i = 0; i < board.size(); i++) {
+
+            for (int j = 0; j < board.size(); j++) {
+
+                board.nullBoard();
+            }
+        }
+
+
+    }
+
 
 }

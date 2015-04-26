@@ -2,8 +2,8 @@ package ru.ifmo.grushitcyna;
 
 public abstract class Gamer {
 
-    String name;
-    NoughtsCrosses symbol;
+    private final String name;
+    protected final NoughtsCrosses symbol;
 
     public Gamer(String name, NoughtsCrosses symbol) {
 
